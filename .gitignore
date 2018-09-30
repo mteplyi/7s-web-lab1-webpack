@@ -3,15 +3,8 @@ npm-debug.log
 yarn-error.log
 
 # IDEs and editors
-/.idea/*
-!/.idea/codeStyles
+.idea/
 .project
 .c9/
 *.sublime-workspace
-# IDE - VSCode
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-
+.vscode

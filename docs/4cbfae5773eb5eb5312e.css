@@ -1,5 +1,781 @@
 /* =================================================================== 
  *
+ *  Infinity v1.0 Base Stylesheet
+ *  01-02-2017
+ *  ------------------------------------------------------------------
+ *  TOC:
+ *  01. reset
+ *  02. basic/base setup styles
+ *  03. grid
+ *  04. MISC
+ *
+ * =================================================================== */
+
+/* ===================================================================
+ *  01. reset - normalize.css v3.0.2 | MIT License | git.io/normalize
+ *
+ * ------------------------------------------------------------------- */
+html {
+  font-family: sans-serif;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+
+audio, canvas, progress, video {
+  display: inline-block;
+  vertical-align: baseline;
+}
+
+audio:not([controls]) {
+  display: none;
+  height: 0;
+}
+
+[hidden],
+template {
+  display: none;
+}
+
+a {
+  background: transparent;
+}
+
+a:active, a:hover {
+  outline: 0;
+}
+
+abbr[title] {
+  border-bottom: 1px dotted;
+}
+
+b, strong {
+  font-weight: bold;
+}
+
+dfn {
+  font-style: italic;
+}
+
+h1 {
+  font-size: 2em;
+  margin: 0.67em 0;
+}
+
+mark {
+  background: #ff0;
+  color: #000;
+}
+
+small {
+  font-size: 80%;
+}
+
+sub,
+sup {
+  font-size: 75%;
+  line-height: 0;
+  position: relative;
+  vertical-align: baseline;
+}
+
+sup {
+  top: -0.5em;
+}
+
+sub {
+  bottom: -0.25em;
+}
+
+img {
+  border: 0;
+}
+
+svg:not(:root) {
+  overflow: hidden;
+}
+
+figure {
+  margin: 1em 40px;
+}
+
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+}
+
+pre {
+  overflow: auto;
+}
+
+code,
+kbd,
+pre,
+samp {
+  font-family: monospace, monospace;
+  font-size: 1em;
+}
+
+button, input, optgroup,
+select, textarea {
+  color: inherit;
+  font: inherit;
+  margin: 0;
+}
+
+button {
+  overflow: visible;
+}
+
+button, select {
+  text-transform: none;
+}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  -webkit-appearance: button;
+  cursor: pointer;
+}
+
+button[disabled],
+html input[disabled] {
+  cursor: default;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {
+  border: 0;
+  padding: 0;
+}
+
+input {
+  line-height: normal;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+  box-sizing: border-box;
+  padding: 0;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  height: auto;
+}
+
+input[type="search"] {
+  -webkit-appearance: textfield;
+  -moz-box-sizing: content-box;
+  -webkit-box-sizing: content-box;
+  box-sizing: content-box;
+}
+
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-decoration {
+  -webkit-appearance: none;
+}
+
+fieldset {
+  border: 1px solid #c0c0c0;
+  margin: 0 2px;
+  padding: 0.35em 0.625em 0.75em;
+}
+
+legend {
+  border: 0;
+  padding: 0;
+}
+
+textarea {
+  overflow: auto;
+}
+
+optgroup {
+  font-weight: bold;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+td, th {
+  padding: 0;
+}
+
+/* ===================================================================
+ *  02. basic/base setup styles - (_basic.scss)
+ *
+ * ------------------------------------------------------------------- */
+html {
+  font-size: 62.5%;
+  box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit;
+}
+
+body {
+  font-weight: normal;
+  line-height: 1;
+  text-rendering: optimizeLegibility;
+  word-wrap: break-word;
+  -webkit-overflow-scrolling: touch;
+  -webkit-text-size-adjust: none;
+}
+
+body, input, button {
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ------------------------------------------------------------------- 
+ * Media - (_basic.scss)
+ * ------------------------------------------------------------------- */
+img, video {
+  max-width: 100%;
+  height: auto;
+}
+
+/* ------------------------------------------------------------------- 
+ * Typography resets - (_basic.scss)
+ * ------------------------------------------------------------------- */
+div, dl, dt, dd, ul, ol, li, h1, h2, h3, h4, h5, h6, pre, form, p, blockquote, th, td {
+  margin: 0;
+  padding: 0;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  -webkit-font-variant-ligatures: common-ligatures;
+  -moz-font-variant-ligatures: common-ligatures;
+  font-variant-ligatures: common-ligatures;
+  text-rendering: optimizeLegibility;
+}
+
+em, i {
+  font-style: italic;
+  line-height: inherit;
+}
+
+strong, b {
+  font-weight: bold;
+  line-height: inherit;
+}
+
+small {
+  font-size: 60%;
+  line-height: inherit;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+li {
+  display: block;
+}
+
+/* ------------------------------------------------------------------- 
+ * links - (_basic.scss)
+ * ------------------------------------------------------------------- */
+a {
+  text-decoration: none;
+  line-height: inherit;
+}
+
+a img {
+  border: none;
+}
+
+/* ------------------------------------------------------------------- 
+ * inputs - (_basic.scss)
+ * ------------------------------------------------------------------- */
+fieldset {
+  margin: 0;
+  padding: 0;
+}
+
+input[type="email"],
+input[type="number"],
+input[type="search"],
+input[type="text"],
+input[type="tel"],
+input[type="url"],
+input[type="password"],
+textarea {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  appearance: none;
+}
+
+/* ===================================================================
+ *  03. grid - (_grid.scss)
+ *
+ * ------------------------------------------------------------------- */
+.row {
+  width: 94%;
+  max-width: 1170px;
+  margin: 0 auto;
+}
+.row:before, .row:after {
+  content: "";
+  display: table;
+}
+.row:after {
+  clear: both;
+}
+
+.row .row {
+  width: auto;
+  max-width: none;
+  margin-left: -20px;
+  margin-right: -20px;
+}
+
+[class*="col-"], .bgrid {
+  float: left;
+}
+
+[class*="col-"] + [class*="col-"].end {
+  float: right;
+}
+
+[class*="col-"] {
+  padding: 0 20px;
+}
+
+.col-one {
+  width: 8.33333%;
+}
+
+.col-two, .col-1-6 {
+  width: 16.66667%;
+}
+
+.col-three, .col-1-4 {
+  width: 25%;
+}
+
+.col-four, .col-1-3 {
+  width: 33.33333%;
+}
+
+.col-five {
+  width: 41.66667%;
+}
+
+.col-six, .col-1-2 {
+  width: 50%;
+}
+
+.col-seven {
+  width: 58.33333%;
+}
+
+.col-eight, .col-2-3 {
+  width: 66.66667%;
+}
+
+.col-nine, .col-3-4 {
+  width: 75%;
+}
+
+.col-ten, .col-5-6 {
+  width: 83.33333%;
+}
+
+.col-eleven {
+  width: 91.66667%;
+}
+
+.col-twelve, .col-full {
+  width: 100%;
+}
+
+/* ------------------------------------------------------------------- 
+ * small screens - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .row .row {
+    margin-left: -18px;
+    margin-right: -18px;
+  }
+
+  [class*="col-"] {
+    padding: 0 18px;
+  }
+}
+/* ------------------------------------------------------------------- 
+ * tablets - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .row {
+    width: auto;
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+
+  .row .row {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: -15px;
+    margin-right: -15px;
+  }
+
+  [class*="col-"] {
+    padding: 0 15px;
+  }
+
+  .tab-1-4 {
+    width: 25%;
+  }
+
+  .tab-1-3 {
+    width: 33.33333%;
+  }
+
+  .tab-1-2 {
+    width: 50%;
+  }
+
+  .tab-2-3 {
+    width: 66.66667%;
+  }
+
+  .tab-3-4 {
+    width: 75%;
+  }
+
+  .tab-full {
+    width: 100%;
+  }
+}
+/* ------------------------------------------------------------------- 
+ * large mobile devices - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+  .row {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .row .row {
+    margin-left: -10px;
+    margin-right: -10px;
+  }
+
+  [class*="col-"] {
+    padding: 0 10px;
+  }
+
+  .mob-1-4 {
+    width: 25%;
+  }
+
+  .mob-1-2 {
+    width: 50%;
+  }
+
+  .mob-3-4 {
+    width: 75%;
+  }
+
+  .mob-full {
+    width: 100%;
+  }
+}
+/* ------------------------------------------------------------------- 
+ * small mobile devices - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 400px) {
+  .row .row {
+    padding-left: 0;
+    padding-right: 0;
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+  [class*="col-"] {
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+    margin-left: 0;
+    margin-right: 0;
+    padding: 0;
+  }
+
+  [class*="col-"] + [class*="col-"].end {
+    float: none;
+  }
+}
+/* ===================================================================
+ * block grids - (_grid.scss)
+ *
+ * ------------------------------------------------------------------- */
+[class*="block-"]:before, [class*="block-"]:after {
+  content: "";
+  display: table;
+}
+[class*="block-"]:after {
+  clear: both;
+}
+
+.block-1-6 .bgrid {
+  width: 16.66667%;
+}
+
+.block-1-4 .bgrid {
+  width: 25%;
+}
+
+.block-1-3 .bgrid {
+  width: 33.33333%;
+}
+
+.block-1-2 .bgrid {
+  width: 50%;
+}
+
+/**
+ * Clearing for block grid columns. Allow columns with 
+ * different heights to align properly.
+ */
+.block-1-6 .bgrid:nth-child(6n+1),
+.block-1-4 .bgrid:nth-child(4n+1),
+.block-1-3 .bgrid:nth-child(3n+1),
+.block-1-2 .bgrid:nth-child(2n+1) {
+  clear: both;
+}
+
+/* ------------------------------------------------------------------- 
+ * small screens - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 1024px) {
+  .block-s-1-6 .bgrid {
+    width: 16.66667%;
+  }
+
+  .block-s-1-4 .bgrid {
+    width: 25%;
+  }
+
+  .block-s-1-3 .bgrid {
+    width: 33.33333%;
+  }
+
+  .block-s-1-2 .bgrid {
+    width: 50%;
+  }
+
+  .block-s-full .bgrid {
+    width: 100%;
+    clear: both;
+  }
+
+  [class*="block-s-"] .bgrid:nth-child(n) {
+    clear: none;
+  }
+
+  .block-s-1-6 .bgrid:nth-child(6n+1),
+  .block-s-1-4 .bgrid:nth-child(4n+1),
+  .block-s-1-3 .bgrid:nth-child(3n+1),
+  .block-s-1-2 .bgrid:nth-child(2n+1) {
+    clear: both;
+  }
+}
+/* ------------------------------------------------------------------- 
+ * tablets - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 768px) {
+  .block-tab-1-6 .bgrid {
+    width: 16.66667%;
+  }
+
+  .block-tab-1-4 .bgrid {
+    width: 25%;
+  }
+
+  .block-tab-1-3 .bgrid {
+    width: 33.33333%;
+  }
+
+  .block-tab-1-2 .bgrid {
+    width: 50%;
+  }
+
+  .block-tab-full .bgrid {
+    width: 100%;
+    clear: both;
+  }
+
+  [class*="block-tab-"] .bgrid:nth-child(n) {
+    clear: none;
+  }
+
+  .block-tab-1-6 .bgrid:nth-child(6n+1),
+  .block-tab-1-4 .bgrid:nth-child(4n+1),
+  .block-tab-1-3 .bgrid:nth-child(3n+1),
+  .block-tab-1-2 .bgrid:nth-child(2n+1) {
+    clear: both;
+  }
+}
+/* ------------------------------------------------------------------- 
+ * large mobile devices - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 600px) {
+  .block-mob-1-6 .bgrid {
+    width: 16.66667%;
+  }
+
+  .block-mob-1-4 .bgrid {
+    width: 25%;
+  }
+
+  .block-mob-1-3 .bgrid {
+    width: 33.33333%;
+  }
+
+  .block-mob-1-2 .bgrid {
+    width: 50%;
+  }
+
+  .block-mob-full .bgrid {
+    width: 100%;
+    clear: both;
+  }
+
+  [class*="block-mob-"] .bgrid:nth-child(n) {
+    clear: none;
+  }
+
+  .block-mob-1-6 .bgrid:nth-child(6n+1),
+  .block-mob-1-4 .bgrid:nth-child(4n+1),
+  .block-mob-1-3 .bgrid:nth-child(3n+1),
+  .block-mob-1-2 .bgrid:nth-child(2n+1) {
+    clear: both;
+  }
+}
+/* ------------------------------------------------------------------- 
+ * stack on small mobile devices - (_grid.scss)
+ * ------------------------------------------------------------------- */
+@media screen and (max-width: 400px) {
+  .stack .bgrid {
+    width: 100% !important;
+    float: none !important;
+    clear: both !important;
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+/* ===================================================================
+ *  04. MISC  - (_grid.scss)
+ *
+ * ------------------------------------------------------------------- */
+ 
+/* Clearing - (http://nicolasgallagher.com/micro-clearfix-hack/
+ */
+.group:before, .group:after {
+  content: "";
+  display: table;
+}
+.group:after {
+  clear: both;
+}
+
+/* Misc Helper Styles 
+ */
+.hide {
+  display: none;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+.antialiased {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.remove-bottom {
+  margin-bottom: 0;
+}
+
+.half-bottom {
+  margin-bottom: 1.5rem !important;
+}
+
+.add-bottom {
+  margin-bottom: 3rem !important;
+}
+
+.no-border {
+  border: none;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.pull-left {
+  float: left;
+}
+
+.pull-right {
+  float: right;
+}
+
+.align-center {
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+/* =================================================================== 
+ *
  *  Infinity v1.0 Vendor/Third Party CSS 
  *  01-02-2017
  *  ------------------------------------------------------------------
@@ -2845,8 +3621,8 @@
 
 @font-face {
   font-family: 'lg';
-  src: url("../fonts/lightgallery/lg.eot?n1z373");
-  src: url("../fonts/lightgallery/lg.eot?#iefixn1z373") format("embedded-opentype"), url("../fonts/lightgallery/lg.woff?n1z373") format("woff"), url("../fonts/lightgallery/lg.ttf?n1z373") format("truetype"), url("../fonts/lightgallery/lg.svg?n1z373#lg") format("svg");
+  src: url(fonts/lightgallery/lg.eot);
+  src: url(fonts/lightgallery/lg.eot?#iefixn1z373) format("embedded-opentype"), url(fonts/lightgallery/lg.woff) format("woff"), url(fonts/lightgallery/lg.ttf) format("truetype"), url(fonts/lightgallery/lg.svg#lg) format("svg");
   font-weight: normal;
   font-style: normal;
 }
@@ -2891,7 +3667,7 @@
 }
 
 .lg-actions .lg-next:before {
-  content: "\e095";
+  content: "\E095";
 }
 
 .lg-actions .lg-prev {
@@ -2899,7 +3675,7 @@
 }
 
 .lg-actions .lg-prev:after {
-  content: "\e094";
+  content: "\E094";
 }
 
 @-webkit-keyframes lg-right-end {
@@ -3035,11 +3811,11 @@
 }
 
 .lg-toolbar .lg-close:after {
-  content: "\e070";
+  content: "\E070";
 }
 
 .lg-toolbar .lg-download:after {
-  content: "\e0f2";
+  content: "\E0F2";
 }
 
 .lg-sub-html {
@@ -3232,7 +4008,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-toogle-thumb:after {
-  content: "\e1ff";
+  content: "\E1FF";
 }
 
 .lg-outer .lg-toogle-thumb:hover {
@@ -3278,15 +4054,15 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-has-vimeo .lg-video-play {
-  background: url("../images/lightgallery/vimeo-play.png") no-repeat scroll 0 0 transparent;
+  background: url(images/lightgallery/vimeo-play.png) no-repeat scroll 0 0 transparent;
 }
 
 .lg-outer .lg-has-vimeo:hover .lg-video-play {
-  background: url("../images/lightgallery/vimeo-play.png") no-repeat scroll 0 -58px transparent;
+  background: url(images/lightgallery/vimeo-play.png) no-repeat scroll 0 -58px transparent;
 }
 
 .lg-outer .lg-has-html5 .lg-video-play {
-  background: transparent url("../images/lightgallery/video-play.png") no-repeat scroll 0 0;
+  background: transparent url(images/lightgallery/video-play.png) no-repeat scroll 0 0;
   height: 64px;
   margin-left: -32px;
   margin-top: -32px;
@@ -3299,11 +4075,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-has-youtube .lg-video-play {
-  background: url("../images/lightgallery/youtube-play.png") no-repeat scroll 0 0 transparent;
+  background: url(images/lightgallery/youtube-play.png) no-repeat scroll 0 0 transparent;
 }
 
 .lg-outer .lg-has-youtube:hover .lg-video-play {
-  background: url("../images/lightgallery/youtube-play.png") no-repeat scroll 0 -60px transparent;
+  background: url(images/lightgallery/youtube-play.png) no-repeat scroll 0 -60px transparent;
 }
 
 .lg-outer .lg-video-object {
@@ -3356,11 +4132,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-autoplay-button:after {
-  content: "\e01d";
+  content: "\E01D";
 }
 
 .lg-show-autoplay .lg-autoplay-button:after {
-  content: "\e01a";
+  content: "\E01A";
 }
 
 .lg-outer.lg-css3.lg-zoom-dragging .lg-item.lg-complete.lg-zoomable .lg-img-wrap, .lg-outer.lg-css3.lg-zoom-dragging .lg-item.lg-complete.lg-zoomable .lg-image {
@@ -3397,7 +4173,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 #lg-zoom-in:after {
-  content: "\e311";
+  content: "\E311";
 }
 
 #lg-actual-size {
@@ -3405,7 +4181,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 #lg-actual-size:after {
-  content: "\e033";
+  content: "\E033";
 }
 
 #lg-zoom-out {
@@ -3414,7 +4190,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 #lg-zoom-out:after {
-  content: "\e312";
+  content: "\E312";
 }
 
 .lg-zoomed #lg-zoom-out {
@@ -3512,11 +4288,11 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-fullscreen:after {
-  content: "\e20c";
+  content: "\E20C";
 }
 
 .lg-fullscreen-on .lg-fullscreen:after {
-  content: "\e20d";
+  content: "\E20D";
 }
 
 .group {
@@ -3607,7 +4383,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .lg-outer .lg-item {
-  background: url("../images/lightgallery/loading.gif") no-repeat scroll center center transparent;
+  background: url(images/lightgallery/loading.gif) no-repeat scroll center center transparent;
   display: none !important;
 }
 
@@ -3784,8 +4560,6 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
   -o-transition: left 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.1s ease 0s;
   transition: left 1s cubic-bezier(0, 0, 0.25, 1) 0s, opacity 0.1s ease 0s;
 }
-
-/*# sourceMappingURL=lightgallery.css.map */
 /**
  * 03.
  * Owl Carousel v2.2.0
@@ -4061,7 +4835,7 @@ body:not(.lg-from-hash) .lg-outer.lg-start-zoom .lg-item.lg-complete .lg-object 
 }
 
 .flexslider .slides:after {
-  content: "\0020";
+  content: " ";
   display: block;
   clear: both;
   visibility: hidden;
@@ -4080,3 +4854,4 @@ html[xmlns] .flexslider .slides {
 .no-js .flexslider .slides > li:first-child {
   display: block;
 }
+
